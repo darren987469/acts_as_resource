@@ -1,4 +1,4 @@
-module Resource
+module ActsAsResource
   module Accessable
     extend ActiveSupport::Concern
 

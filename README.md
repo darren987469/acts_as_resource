@@ -1,4 +1,4 @@
-# Resource
+# ActsAsResource
 [![Build Status](https://travis-ci.org/darren987469/resource.svg?branch=master)](https://travis-ci.org/darren987469/resource)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8b9bf5b5fae1eb34a328/maintainability)](https://codeclimate.com/github/darren987469/resource/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/darren987469/resource/badge.svg?branch=master)](https://coveralls.io/github/darren987469/resource?branch=master)
@@ -10,7 +10,7 @@ This gem handle whether user can access the resources. Resource cab be project, 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'resource'
+gem 'acts_as_resource'
 ```
 
 And then execute:
@@ -20,7 +20,7 @@ And then execute:
 Generate migration and run it
 
 ```shell
-rails g resource:migration
+rails g acts_as_resource:migration
 rake db:migrate
 ```
 
@@ -67,7 +67,7 @@ another_user.can_access?(project)
 ```
 
 ## How it works?
-In install step, migration will create [`resourceships`](https://github.com/darren987469/resource/blob/master/lib/resource/resourceship.rb) table. This table help to store accessors and resources' relation.
+In install step, migration will create [`resourceships`](https://github.com/darren987469/acts_as_resource/blob/master/lib/acts_as_resource/resourceship.rb) table. This table help to store accessors and resources' relation.
 
 ## Development
 
@@ -77,7 +77,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/darren987469/resource. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/darren987469/acts_as_resource. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -85,4 +85,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Resource project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/darren987469/resource/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Resource project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/darren987469/acts_as_resource/blob/master/CODE_OF_CONDUCT.md).

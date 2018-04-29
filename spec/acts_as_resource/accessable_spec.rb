@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Resource::Accessable do
+describe ActsAsResource::Accessable do
   let(:user) { User.create! }
   let(:project) { Project.create! }
 

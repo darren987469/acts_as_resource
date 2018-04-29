@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "resource"
+require "acts_as_resource"
 
 $LOAD_PATH.unshift(File.expand_path('..', File.dirname(__FILE__)))
-require 'lib/generators/resource/migration/templates/migration.rb'
+require 'lib/generators/acts_as_resource/migration/templates/migration.rb'
 require 'spec/support/spec_migration.rb'
 
 require 'spec/app/models/user'
@@ -21,7 +21,7 @@ db_config = YAML.load_file('spec/database.yml').fetch(ENV["DB"] || "sqlite")
 ActiveRecord::Base.establish_connection(db_config)
 ActiveRecord::Schema.verbose = false
 
-ResourceMigration.up
+ActsAsResourceMigration.up
 SpecMigration.up
 
 ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(Logger)

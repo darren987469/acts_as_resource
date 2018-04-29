@@ -1,4 +1,4 @@
-class ResourceMigration < Resource::MIGRATION_BASE_CLASS
+class ActsAsResourceMigration < ActsAsResource::MIGRATION_BASE_CLASS
   def self.up
     create_table Resourceship, force: true, options: create_options do |t|
       t.references :accessable, polymorphic: { null: false }

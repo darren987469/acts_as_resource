@@ -5,8 +5,8 @@ require 'pry-byebug'
 require 'coveralls'
 Coveralls.wear!
 
-require "resource"
-require 'generators/resource/migration/templates/migration.rb'
+require "acts_as_resource"
+require 'generators/acts_as_resource/migration/templates/migration.rb'
 
 require 'app/models/user'
 require 'app/models/project'
@@ -46,7 +46,7 @@ def setup_db
   ActiveRecord::Base.establish_connection(db_config)
   ActiveRecord::Schema.verbose = false
 
-  ResourceMigration.up
+  ActsAsResourceMigration.up
   SpecMigration.up
 end
 

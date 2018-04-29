@@ -1,3 +1,3 @@
-module Resource
+module ActsAsResource
   VERSION = "0.1.0"
 end

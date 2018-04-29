@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Resource::Base do
+describe ActsAsResource::Base do
   let(:user) { User.create! }
   let(:project) { Project.create! }
 

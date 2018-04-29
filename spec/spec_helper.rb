@@ -3,7 +3,7 @@ require 'pry'
 require 'pry-byebug'
 
 require 'coveralls'
-coveralls.wear!
+Coveralls.wear!
 
 require "resource"
 require 'generators/resource/migration/templates/migration.rb'
@@ -49,7 +49,6 @@ def setup_db
   db_config = YAML.load_file('spec/database.yml').fetch(ENV["DB"] || "sqlite")
   ActiveRecord::Base.establish_connection(db_config)
   ActiveRecord::Schema.verbose = false
-  ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(Logger)
 
   ResourceMigration.up
   SpecMigration.up

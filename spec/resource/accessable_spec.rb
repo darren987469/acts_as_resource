@@ -1,19 +1,17 @@
 require 'spec_helper'
 
 describe Resource::Accessable do
-  before do
-    @user = User.create!
-    @project = Project.create!
-  end
+  let(:user) { User.create! }
+  let(:project) { Project.create! }
 
-  describe '#can_access?' do
-    it 'return false when user doesn\'t have resource' do
-      expect(@user.can_access?(@project)).to eq false
+  describe '#can_access?(resource)' do
+    context 'when user doesn\'t have resource' do
+      it { expect(user.can_access?(project)).to eq false }
     end
 
-    it 'return true when user has resource' do
-      @user.projects << @project
-      expect(@user.can_access?(@project)).to eq true
+    context 'when user has resource' do
+      before { user.projects << project }
+      it { expect(user.can_access?(project)).to eq true  }
     end
   end
 end

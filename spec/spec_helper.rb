@@ -32,10 +32,6 @@ RSpec.configure do |config|
     setup_db
   end
 
-  config.before :each do
-    clear_db
-  end
-
   config.after :each do
     clear_db
   end

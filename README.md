@@ -1,8 +1,6 @@
 # Resource
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/resource`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is helpful to handle whether user has permission to access resources. Resource cab be project, document, etc.
 
 ## Installation
 
@@ -22,7 +20,41 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+class User < ActiveRecord::Base
+  acts_as_accessable resources: [ :projects ]
+end
+
+class Project < ActiveRecord::Base
+  acts_as_resource accessors: [ :users ]
+end
+
+user = User.create!
+project = Project.create!
+
+user.projects
+# => [ ]
+project.users
+# => [ ]
+user.can_access?(project)
+# => false
+project.accessible_by?(user)
+# => false
+
+user.projects << project # or project.users << user
+user.projects
+# => [ project ]
+project.users
+# => [ user ]
+user.can_access?(project)
+# => true
+project.accessible_by?(user)
+# => true
+
+another_user = User.create!
+another_user.can_access?(project)
+# => false
+```
 
 ## Development
 
@@ -32,12 +64,8 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/resource. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/darren987469/resource. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Resource project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/resource/blob/master/CODE_OF_CONDUCT.md).

@@ -1,7 +1,7 @@
 # ActsAsResource
-[![Build Status](https://travis-ci.org/darren987469/resource.svg?branch=master)](https://travis-ci.org/darren987469/resource)
-[![Maintainability](https://api.codeclimate.com/v1/badges/8b9bf5b5fae1eb34a328/maintainability)](https://codeclimate.com/github/darren987469/resource/maintainability)
-[![Coverage Status](https://coveralls.io/repos/github/darren987469/resource/badge.svg?branch=master)](https://coveralls.io/github/darren987469/resource?branch=master)
+[![Build Status](https://travis-ci.org/darren987469/acts_as_resource.svg?branch=master)](https://travis-ci.org/darren987469/resource)
+[![Maintainability](https://api.codeclimate.com/v1/badges/69fe56be3a4113d0ac57/maintainability)](https://codeclimate.com/github/darren987469/acts_as_resource/maintainability)
+[![Coverage Status](https://coveralls.io/repos/github/darren987469/acts_as_resource/badge.svg?branch=master)](https://coveralls.io/github/darren987469/resource?branch=master)
 
 This gem handle whether user can access the resources. Resource cab be project, document, etc.
 

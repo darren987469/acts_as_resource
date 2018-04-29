@@ -3,7 +3,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/8b9bf5b5fae1eb34a328/maintainability)](https://codeclimate.com/github/darren987469/resource/maintainability)
 [![Coverage Status](https://coveralls.io/repos/github/darren987469/resource/badge.svg?branch=master)](https://coveralls.io/github/darren987469/resource?branch=master)
 
-This gem is helpful to handle whether user has permission to access resources. Resource cab be project, document, etc.
+This gem handle whether user can access the resources. Resource cab be project, document, etc.
 
 ## Installation
 
@@ -29,10 +29,14 @@ rake db:migrate
 ```ruby
 class User < ActiveRecord::Base
   acts_as_accessable resources: [ :projects ]
+  # resources option help to define has_many :projects
+  # resources option is optional
 end
 
 class Project < ActiveRecord::Base
   acts_as_resource accessors: [ :users ]
+  # accessors option help to define has_many :users association
+  # accessors option is optional
 end
 
 user = User.create!
@@ -61,6 +65,9 @@ another_user = User.create!
 another_user.can_access?(project)
 # => false
 ```
+
+## How it works?
+In install step, migration will create [`resourceships`](https://github.com/darren987469/resource/blob/master/lib/resource/resourceship.rb) table. This table help to store accessors and resources' relation.
 
 ## Development
 

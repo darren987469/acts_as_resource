@@ -17,9 +17,12 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Generate migration and run it
 
-    $ gem install resource
+```shell
+rails g resource:migration
+rake db:migrate
+```
 
 ## Usage
 

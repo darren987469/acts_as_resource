@@ -3,7 +3,7 @@ module Resource
     extend ActiveSupport::Concern
 
     included do
-      has_many :resourceships, as: :resourceable
+      has_many :resourceships, as: :resourceable, dependent: :delete_all
 
       def accessible_by?(accessable)
         resourceships.where(accessable: accessable).exists?

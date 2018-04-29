@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
   self.table_name = 'users'
 
-  acts_as_accessable
+  acts_as_accessable resources: [:projects]
 end

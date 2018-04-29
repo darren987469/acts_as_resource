@@ -12,7 +12,7 @@ describe Resource::Accessable do
     end
 
     it 'return true when user has resource' do
-      @user.resourceships.create!(resourceable: @project)
+      @user.projects << @project
       expect(@user.can_access?(@project)).to eq true
     end
   end

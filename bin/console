@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "acts_as_resource"
+require 'bundler/setup'
+require 'acts_as_resource'
 
 $LOAD_PATH.unshift(File.expand_path('..', File.dirname(__FILE__)))
 require 'lib/generators/acts_as_resource/migration/templates/migration.rb'
@@ -17,7 +17,7 @@ require 'spec/app/models/project'
 # require "pry"
 # Pry.start
 
-db_config = YAML.load_file('spec/database.yml').fetch(ENV["DB"] || "sqlite")
+db_config = YAML.load_file('spec/database.yml').fetch(ENV['DB'] || 'sqlite')
 ActiveRecord::Base.establish_connection(db_config)
 ActiveRecord::Schema.verbose = false
 
@@ -27,5 +27,5 @@ SpecMigration.up
 ActiveRecord::Base.logger = Logger.new(STDOUT) if defined?(Logger)
 ActiveRecord::Base.connection.schema_cache.clear!
 
-require "irb"
+require 'irb'
 IRB.start(__FILE__)

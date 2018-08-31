@@ -5,7 +5,12 @@ class ActsAsResourceMigration < ActsAsResource::MIGRATION_BASE_CLASS
       t.references :resourceable, polymorphic: { null: false }
     end
 
-    add_index Resourceship, [:accessable_id, :accessable_type, :resourceable_id, :resourceable_type], name: 'relationships_accesable_resourceable_index', unique: true
+    add_index(
+      Resourceship,
+      %i[accessable_id accessable_type resourceable_id resourceable_type],
+      name: 'relationships_accesable_resourceable_index',
+      unique: true
+    )
   end
 
   def self.down

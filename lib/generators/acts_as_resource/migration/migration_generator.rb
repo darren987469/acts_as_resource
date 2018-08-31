@@ -5,7 +5,7 @@ module ActsAsResource
   class MigrationGenerator < Rails::Generators::Base
     include Rails::Generators::Migration
 
-    desc "Generates migration for acts_as_resource"
+    desc 'Generates migration for acts_as_resource'
     source_root File.expand_Path('../templates', __FILE__)
 
     def create_migration_file
@@ -14,9 +14,9 @@ module ActsAsResource
 
     def self.next_migration_number(dirname)
       if ActiveRecord::Base.timestamped_migrations
-        Time.now.utc.strftime("%Y%m%d%H%M%S")
+        Time.now.utc.strftime('%Y%m%d%H%M%S')
       else
-        "%.3d" % (current_migration_number(dirname) + 1)
+        format('%.3d', (current_migration_number(dirname) + 1))
       end
     end
   end

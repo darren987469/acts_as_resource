@@ -11,7 +11,7 @@ describe ActsAsResource::Accessable do
 
     context 'when user has resource' do
       before { user.projects << project }
-      it { expect(user.can_access?(project)).to eq true  }
+      it { expect(user.can_access?(project)).to eq true }
     end
   end
 end
